@@ -130,7 +130,7 @@ class Tabs extends React.Component {
 
     const showScrollButtons = scrollable && (scrollButtons === 'auto' || scrollButtons === 'on');
 
-    conditionalElements.scrollButtonLeft = showScrollButtons ? (
+    conditionalElements.scrollButtonLeft = showScrollButtons && (this.state.showLeftScroll || this.state.showRightScroll) ? (
       <ScrollButtonComponent
         direction={theme && theme.direction === 'rtl' ? 'right' : 'left'}
         onClick={this.handleLeftScrollClick}
@@ -141,7 +141,7 @@ class Tabs extends React.Component {
       />
     ) : null;
 
-    conditionalElements.scrollButtonRight = showScrollButtons ? (
+    conditionalElements.scrollButtonRight = showScrollButtons && (this.state.showLeftScroll || this.state.showRightScroll) ? (
       <ScrollButtonComponent
         direction={theme && theme.direction === 'rtl' ? 'left' : 'right'}
         onClick={this.handleRightScrollClick}
